@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Reproductor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="214.562" Width="465">
-    <Grid>
+        Title="MainWindow" Height="255.875" Width="467">
+    <Grid Height="184" VerticalAlignment="Top">
         <TextBox x:Name="txtRutaArchivo" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="343"/>
         <Button x:Name="btnExaminar" Content="Examinar" HorizontalAlignment="Left" Margin="364,12,0,0" VerticalAlignment="Top" Width="75" Click="BtnExaminar_Click"/>
         <Button x:Name="btnReproducir" Content="Reproducir" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top" Width="75" Click="BtnReproducir_Click"/>
         <Button x:Name="btnPausa" Content="Pausa" HorizontalAlignment="Left" Margin="90,52,0,0" VerticalAlignment="Top" Width="75" Click="BtnPausa_Click"/>
         <Button x:Name="btnDetener" Content="Detener" HorizontalAlignment="Left" Margin="170,52,0,0" VerticalAlignment="Top" Width="75" Click="BtnDetener_Click"/>
         <TextBlock x:Name="lblTiempoActual" HorizontalAlignment="Left" Margin="10,103,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top"/>
-        <TextBlock x:Name="lblTiempoTotal" HorizontalAlignment="Left" Margin="395,103,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" RenderTransformOrigin="0.527,0.376"/>
-        <Slider x:Name="sldTiempo" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Width="434"/>
-        <TextBlock HorizontalAlignment="Left" Margin="23,136,0,0" TextWrapping="Wrap" Text="Elige dispositivo de salida" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cbDispositivoSalida" HorizontalAlignment="Left" Margin="10,153,0,0" VerticalAlignment="Top" Width="437"/>
+        <TextBlock x:Name="lblTiempoTotal" HorizontalAlignment="Left" Margin="403,103,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" RenderTransformOrigin="0.527,0.376"/>
+        <Slider x:Name="sldTiempo" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Width="437"/>
+		<TextBlock HorizontalAlignment="Left" Margin="10,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Elige dispositivo de salida"/><Run Text=":"/></TextBlock>
+		<ComboBox x:Name="cbDispositivoSalida" HorizontalAlignment="Left" Margin="10,183,0,-21" VerticalAlignment="Top" Width="437"/>
 
     </Grid>
 </Window>

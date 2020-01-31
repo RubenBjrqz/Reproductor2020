@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Reproductor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="255.875" Width="467">
+        Title="MainWindow" Height="255.875" Width="538.802">
     <Grid Height="184" VerticalAlignment="Top">
         <TextBox x:Name="txtRutaArchivo" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="343"/>
         <Button x:Name="btnExaminar" Content="Examinar" HorizontalAlignment="Left" Margin="364,12,0,0" VerticalAlignment="Top" Width="75" Click="BtnExaminar_Click"/>
@@ -17,6 +17,8 @@
         <Slider x:Name="sldTiempo" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Width="437" Thumb.DragStarted="SldTiempo_DragStarted" Thumb.DragCompleted="SldTiempo_DragCompleted"/>
 		<TextBlock HorizontalAlignment="Left" Margin="10,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Elige dispositivo de salida"/><Run Text=":"/></TextBlock>
 		<ComboBox x:Name="cbDispositivoSalida" HorizontalAlignment="Left" Margin="10,183,0,-21" VerticalAlignment="Top" Width="437"/>
+        <Slider x:Name="sldVolumen" HorizontalAlignment="Left" Margin="481,79,0,0" VerticalAlignment="Top" Orientation="Vertical" Height="105" Maximum="1" SmallChange="0.01" LargeChange="0.1" Value="1" ValueChanged="sldVolumen_ValueChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="466,58,0,0" TextWrapping="Wrap" Text="Volumen" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

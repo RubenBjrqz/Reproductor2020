@@ -38,11 +38,13 @@ namespace Reproductor
         WaveOut output;
 
         bool dragging = false;
+        VolumeSampleProvider volume;
 
         public MainWindow()
         {
             InitializeComponent();
             ListarDispositivoSalida();
+
             btnReproducir.IsEnabled = false;
             btnDetener.IsEnabled = false;
             btnPausa.IsEnabled = false;
@@ -100,12 +102,16 @@ namespace Reproductor
             if (txtRutaArchivo.Text != null && txtRutaArchivo.Text != string.Empty)
             {
                 reader = new AudioFileReader(txtRutaArchivo.Text);
+                volume = new VolumeSampleProvider(reader);
+                volume.Volume = (float)(sldVolumen.Value);
                 output = new WaveOut();
                 output.DeviceNumber = cbDispositivoSalida.SelectedIndex;
                 output.PlaybackStopped += Output_PlaybackStopped;
-
-                output.Init(reader);
+                output.Init(volume);
                 output.Play();
+
+                //Cambiar el volumen del output
+                /*output.Volume = (float)(sldVolumen.Value);*/
 
                 btnReproducir.IsEnabled = false;
                 btnPausa.IsEnabled = true;
@@ -115,6 +121,7 @@ namespace Reproductor
                 lblTiempoActual.Text = reader.CurrentTime.ToString().Substring(0, 8);
 
                 sldTiempo.Maximum = reader.TotalTime.TotalSeconds;
+                sldTiempo.Value = reader.CurrentTime.TotalSeconds;
 
 
                 timer.Start();
@@ -161,6 +168,15 @@ namespace Reproductor
             if (reader != null && output != null && output.PlaybackState != PlaybackState.Stopped)
             {
                 reader.CurrentTime = TimeSpan.FromSeconds(sldTiempo.Value);
+            }
+        }
+
+        private void sldVolumen_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (output != null && output.PlaybackState != PlaybackState.Stopped)
+            {
+                /*output.Volume = (float)(sldVolumen.Value);*/
+                volume.Volume = (float)(sldVolumen.Value);
             }
         }
     }
